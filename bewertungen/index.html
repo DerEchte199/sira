@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bewertungen | Änderungsschneiderei Sira</title>
+  <meta name="description" content="Google Bewertungen und Kundenstimmen der Änderungsschneiderei Sira in Ochsenfurt." />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+  <div class="drawer-backdrop" id="backdrop"></div>
+  <aside class="drawer" id="drawer" aria-label="Menü">
+    <div class="drawer-head">
+      <div class="drawer-title">Menü</div>
+      <button class="close-btn" id="closeDrawer" aria-label="Menü schließen">✕</button>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Start</a>
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/ueber-uns/">Über uns</a>
+      <a href="/bewertungen/">Bewertungen</a>
+      <a href="/kontakt/">Kontakt & Anfahrt</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+    </nav>
+    <div class="drawer-cta">
+      <a class="btn" href="tel:015750701684">Jetzt anrufen</a>
+      <a class="btn btn-ghost" href="https://wa.me/4915750701684?text=Hallo%2C%20ich%20h%C3%A4tte%20eine%20Frage%20zu%20einer%20%C3%84nderung." target="_blank" rel="noreferrer">WhatsApp schreiben</a>
+    </div>
+  </aside>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="left-wrap">
+        <button class="menu-btn" id="openDrawer" aria-label="Menü öffnen">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <div class="brand">
+          <div class="brand-name">Änderungsschneiderei <span class="accent">Sira</span></div>
+          <p class="brand-sub">Bewertungen</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-small" href="tel:015750701684">Anrufen</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="container">
+      <section class="section">
+        <h1 style="margin:0 0 10px;font-size:36px;letter-spacing:-.3px;">Bewertungen</h1>
+        <p class="lead">
+          Vertrauen ist wichtig, gerade bei Kleidung. Wenn du dir ein Bild machen möchtest, findest du unsere Bewertungen auf Google.
+        </p>
+
+        <div class="hero-cta">
+          <!-- Link musst du gleich ersetzen (siehe Anleitung unten) -->
+          <a class="btn" href="#" id="googleReviewsLink" target="_blank" rel="noreferrer">Bewertungen auf Google ansehen</a>
+          <a class="btn btn-ghost" href="/kontakt/">Kontakt & Anfahrt</a>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="two-col">
+          <div>
+            <h2>Kundenstimmen</h2>
+            <p>Optional: Hier kannst du 2–3 echte Zitate aus Google Bewertungen manuell eintragen.</p>
+
+            <div class="card" style="box-shadow:none">
+              <p class="small" style="margin:0 0 8px;color:var(--muted);">„Platzhalter Zitat 1: Sehr freundlich und schnelle Arbeit.“</p>
+              <p class="small" style="margin:0 0 8px;color:var(--muted);">„Platzhalter Zitat 2: Super Ergebnis, fairer Preis.“</p>
+              <p class="small" style="margin:0;color:var(--muted);">„Platzhalter Zitat 3: Komme gerne wieder.“</p>
+            </div>
+          </div>
+
+          <div>
+            <h2>Google Maps</h2>
+            <p>Offizielle Einbettung. Sicher und professionell.</p>
+
+            <div class="map">
+              <!-- WICHTIG: Den src ersetzen (siehe Anleitung) -->
+              <iframe
+                title="Google Maps"
+                src=""
+                width="100%" height="100%"
+                style="border:0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <p class="small" style="margin-top:10px;">
+              Tipp: Wenn du willst, setzen wir auf der Kontaktseite die gleiche Karte nochmal.
+            </p>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <p class="small" style="margin:0;color:var(--muted);">
+          Hinweis: Automatisch Bewertungen „ziehen“ geht nur über API oder Drittanbieter. Wir bleiben bewusst bei der sauberen Variante.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Änderungsschneiderei Sira</div>
+      <div>
+        <a href="/impressum/">Impressum</a><span class="dot">•</span>
+        <a href="/datenschutz/">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const drawer = document.getElementById("drawer");
+    const backdrop = document.getElementById("backdrop");
+    document.getElementById("openDrawer").addEventListener("click", ()=>{drawer.classList.add("open"); backdrop.classList.add("open");});
+    document.getElementById("closeDrawer").addEventListener("click", ()=>{drawer.classList.remove("open"); backdrop.classList.remove("open");});
+    backdrop.addEventListener("click", ()=>{drawer.classList.remove("open"); backdrop.classList.remove("open");});
+    document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){drawer.classList.remove("open"); backdrop.classList.remove("open");}});
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
