@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leistungen | Änderungsschneiderei Sira</title>
+  <meta name="description" content="Leistungen der Änderungsschneiderei Sira: Kürzen, anpassen, reparieren, Reißverschluss, Jacken, Anzüge, Kleider." />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+  <div class="drawer-backdrop" id="backdrop"></div>
+  <aside class="drawer" id="drawer" aria-label="Menü">
+    <div class="drawer-head">
+      <div class="drawer-title">Menü</div>
+      <button class="close-btn" id="closeDrawer" aria-label="Menü schließen">✕</button>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Start</a>
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/ueber-uns/">Über uns</a>
+      <a href="/bewertungen/">Bewertungen</a>
+      <a href="/kontakt/">Kontakt & Anfahrt</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+    </nav>
+    <div class="drawer-cta">
+      <a class="btn" href="tel:015750701684">Jetzt anrufen</a>
+      <a class="btn btn-ghost" href="https://wa.me/4915750701684?text=Hallo%2C%20ich%20h%C3%A4tte%20eine%20Frage%20zu%20einer%20%C3%84nderung." target="_blank" rel="noreferrer">WhatsApp schreiben</a>
+    </div>
+    <div class="drawer-note">Ohne Termin möglich.</div>
+  </aside>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="left-wrap">
+        <button class="menu-btn" id="openDrawer" aria-label="Menü öffnen">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <div class="brand">
+          <div class="brand-name">Änderungsschneiderei <span class="accent">Sira</span></div>
+          <p class="brand-sub">Leistungen</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-small" href="tel:015750701684">Anrufen</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="container">
+      <section class="section">
+        <h1 style="margin:0 0 10px;font-size:36px;letter-spacing:-.3px;">Leistungen</h1>
+        <p class="lead">
+          Bei uns bekommst du Änderungen und Reparaturen für fast alles, was man trägt.
+          Wir schauen uns dein Kleidungsstück an, beraten dich ehrlich und sagen dir transparent, was möglich ist.
+        </p>
+
+        <img class="hero-img" src="../assets/images/leistungen-details.jpg" alt="Stoff, Maßband und Schneiderschere auf einem Tisch" />
+
+        <div class="hr"></div>
+
+        <div class="list-grid">
+          <div class="block">
+            <h3>Hosen und Jeans</h3>
+            <ul>
+              <li>Kürzen, enger oder weiter</li>
+              <li>Bund anpassen</li>
+              <li>Saum und Nähte reparieren</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h3>Kleider und Röcke</h3>
+            <ul>
+              <li>Länge anpassen</li>
+              <li>Enger oder weiter</li>
+              <li>Ausbesserungen</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h3>Anzüge, Blazer, Hemden</h3>
+            <ul>
+              <li>Ärmel kürzen</li>
+              <li>Passform anpassen</li>
+              <li>Kleine Reparaturen</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h3>Reißverschluss & Reparaturen</h3>
+            <ul>
+              <li>Reißverschluss wechseln oder reparieren</li>
+              <li>Knöpfe annähen</li>
+              <li>Kleine Schäden beheben</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <p class="small" style="margin:0;color:var(--muted);">
+          Tipp: Bring es einfach kurz vorbei. Wir schauen es direkt an.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Änderungsschneiderei Sira</div>
+      <div>
+        <a href="/impressum/">Impressum</a><span class="dot">•</span>
+        <a href="/datenschutz/">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const drawer = document.getElementById("drawer");
+    const backdrop = document.getElementById("backdrop");
+    document.getElementById("openDrawer").addEventListener("click", ()=>{drawer.classList.add("open"); backdrop.classList.add("open");});
+    document.getElementById("closeDrawer").addEventListener("click", ()=>{drawer.classList.remove("open"); backdrop.classList.remove("open");});
+    backdrop.addEventListener("click", ()=>{drawer.classList.remove("open"); backdrop.classList.remove("open");});
+    document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){drawer.classList.remove("open"); backdrop.classList.remove("open");}});
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
