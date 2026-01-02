@@ -252,7 +252,7 @@ main{padding:24px 0 44px}
 /* Page-Hero für Unterseiten (Text auf Bild, wie Hero) */
 .page-hero{
   position:relative;
-  min-height:42vh;
+  min-height:68vh;
   display:flex;
   align-items:flex-end;
   padding:36px 0;
