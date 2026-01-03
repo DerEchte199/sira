@@ -160,7 +160,11 @@ main{padding:0 0 44px}
   display:flex;
   align-items:center;
   border-bottom:1px solid var(--line);
-  background: var(--hero-img, url("images/hero-naehmaschine.jpg")) center/cover no-repeat;
+ background-color: #d9d9d9;
+background-image: var(--hero-img, url("images/hero-naehmaschine.jpg"));
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
 }
 .hero::before{
   content:"";
