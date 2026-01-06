@@ -274,3 +274,20 @@ main{padding:0 0 44px}
 
   .map{height:320px}
 }
+.rating-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:10px 0 0;
+  flex-wrap:wrap;
+}
+.stars{
+  font-size:18px;
+  letter-spacing:2px;
+  color:#FFD166;
+  line-height:1;
+}
+.rating-text{
+  color:rgba(255,255,255,.88);
+  font-size:14px;
+}
