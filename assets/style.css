@@ -394,3 +394,13 @@ main{padding:0 0 44px}
     font-size:14px;
   }
 }
+/* Hinweis Blink Effekt */
+.notice-blink{
+  animation: blinkNotice 1.2s infinite;
+}
+
+@keyframes blinkNotice{
+  0%{opacity:1;}
+  50%{opacity:0.4;}
+  100%{opacity:1;}
+}
