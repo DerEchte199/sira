@@ -394,3 +394,17 @@ main{padding:0 0 44px}
     font-size:14px;
   }
 }
+.blink {
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+.notice {
+  color: #ff4d4d;
+  font-weight: 600;
+  font-size: 18px;
+}
