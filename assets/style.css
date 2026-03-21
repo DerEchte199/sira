@@ -396,11 +396,11 @@ main{padding:0 0 44px}
 }
 /* Hinweis Blink Effekt */
 .notice-blink{
-  animation: blinkNotice 1.2s infinite;
+  animation: glowNotice 2s infinite;
 }
 
-@keyframes blinkNotice{
-  0%{opacity:1;}
-  50%{opacity:0.4;}
-  100%{opacity:1;}
+@keyframes glowNotice{
+  0%{box-shadow:0 0 0 rgba(107,33,168,0);}
+  50%{box-shadow:0 0 18px rgba(107,33,168,0.35);}
+  100%{box-shadow:0 0 0 rgba(107,33,168,0);}
 }
