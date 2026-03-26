@@ -19,6 +19,39 @@
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Structured Data: LocalBusiness für Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Änderungsschneiderei Sira",
+    "description": "Änderungsschneiderei in Ochsenfurt. Hosen kürzen, Kleider anpassen, Reißverschluss reparieren. Freundlich, sorgfältig, ohne Termin möglich.",
+    "url": "https://siraelegance.de",
+    "telephone": "+4915750701684",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Marktbreiter Str. 54",
+      "addressLocality": "Ochsenfurt",
+      "postalCode": "97199",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.6619,
+      "longitude": 10.0694
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",   "opens": "09:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday",  "opens": "09:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday",  "opens": "09:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday",    "opens": "09:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday",  "opens": "09:00", "closes": "12:00" }
+    ],
+    "image": "https://siraelegance.de/assets/images/hero-naehmaschine.jpg",
+    "priceRange": "€"
+  }
+  </script>
 </head>
 <body>
 
@@ -42,7 +75,8 @@
       <a href="datenschutz/">Datenschutz</a>
     </nav>
     <div class="drawer-cta">
-      <a class="btn" href="ueber-uns/">Über uns</a>
+      <a class="btn" href="tel:015750701684">Jetzt anrufen</a>
+      <a class="btn btn-ghost dark" href="https://wa.me/4915750701684?text=Hallo%2C%20ich%20h%C3%A4tte%20eine%20Frage%20zu%20einer%20%C3%84nderung." target="_blank" rel="noreferrer">WhatsApp schreiben</a>
     </div>
     <div class="drawer-note">Ohne Termin möglich. Bei besonderen Stücken gerne kurz anrufen.</div>
   </aside>
@@ -67,8 +101,7 @@
 
   <main id="content">
 
-    <!-- FIX 2: Bildpfad korrigiert (kein ../ im Root) -->
-    <section class="hero" style="--hero-img:url('../assets/images/hero-naehmaschine.jpg');" aria-label="Startbereich">
+    <section class="hero" style="--hero-img:url('assets/images/hero-naehmaschine.jpg');" aria-label="Startbereich">
       <div class="container">
         <h1>Änderungen, die wirklich passen.</h1>
         <p class="lead">
@@ -116,6 +149,35 @@
           <a class="btn btn-ghost dark" href="leistungen/">Alle Leistungen ansehen</a>
           <a class="btn btn-ghost dark" href="ueber-uns/">Über uns</a>
           <a class="btn btn-ghost dark" href="bewertungen/">Bewertungen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Öffnungszeiten & Kontakt -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="two-col">
+          <div class="card flat">
+            <h2 style="margin:0 0 4px;font-size:20px">Öffnungszeiten</h2>
+            <p style="margin:0 0 6px;color:var(--muted);font-size:14px">Ohne Termin möglich. Einfach vorbeikommen.</p>
+            <div class="times">
+              <div class="times-row"><span>Dienstag – Freitag</span><span style="font-weight:700">09:00 – 14:00</span></div>
+              <div class="times-row"><span>Samstag</span><span style="font-weight:700">09:00 – 12:00</span></div>
+              <div class="times-row"><span>Sonntag & Montag</span><span style="color:var(--muted)">geschlossen</span></div>
+            </div>
+          </div>
+          <div class="card flat">
+            <h2 style="margin:0 0 4px;font-size:20px">So erreichst du uns</h2>
+            <p style="margin:0 0 6px;color:var(--muted);font-size:14px">Schnell und unkompliziert.</p>
+            <div class="times">
+              <div class="times-row"><span>Adresse</span><span>Marktbreiter Str. 54, 97199 Ochsenfurt</span></div>
+              <div class="times-row"><span>Telefon</span><span><a href="tel:015750701684" style="color:var(--accent);font-weight:700">01575 0701684</a></span></div>
+              <div class="times-row"><span>WhatsApp</span><span><a href="https://wa.me/4915750701684?text=Hallo%2C%20ich%20h%C3%A4tte%20eine%20Frage%20zu%20einer%20%C3%84nderung." target="_blank" rel="noreferrer" style="color:var(--accent);font-weight:700">Chat starten</a></span></div>
+            </div>
+            <div style="margin-top:14px">
+              <a class="btn btn-ghost dark" href="kontakt/" style="width:100%;justify-content:center">Route & Anfahrt</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
