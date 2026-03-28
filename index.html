@@ -121,6 +121,31 @@
       </div>
     </section>
 
+    <!-- Osterferien-Hinweis (wird nach 06.04.2026 automatisch ausgeblendet) -->
+    <div class="holiday-notice" id="holidayNotice">
+      <div class="container">
+        <div class="holiday-inner">
+          <div class="holiday-icon">🐣</div>
+          <div class="holiday-body">
+            <p class="holiday-title">Frohe Ostern! Wir sind an den Feiertagen geschlossen.</p>
+            <p class="holiday-sub">Ab Dienstag, 07.04.2026 sind wir wieder zu den gewohnten Zeiten für euch da.</p>
+          </div>
+          <div class="holiday-chips">
+            <div class="holiday-chip">
+              <span class="holiday-chip-label">Karfreitag</span>
+              <span class="holiday-chip-date">03.04.2026</span>
+              <span class="holiday-chip-closed">Geschlossen</span>
+            </div>
+            <div class="holiday-chip">
+              <span class="holiday-chip-label">Ostermontag</span>
+              <span class="holiday-chip-date">06.04.2026</span>
+              <span class="holiday-chip-closed">Geschlossen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- FIX 1: Verschachtelte section-Struktur bereinigt -->
     <section class="section">
       <div class="container">
@@ -271,6 +296,12 @@
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Osterhinweis nach Ostermontag (07.04.2026) ausblenden
+    const notice = document.getElementById("holidayNotice");
+    if(notice && new Date() > new Date("2026-04-07T00:00:00")){
+      notice.style.display = "none";
+    }
   </script>
 
 </body>
