@@ -77,8 +77,8 @@
             type="text"
             id="auftragNr"
             class="tracker-input"
-            placeholder="z. B. 1001"
-            maxlength="20"
+            placeholder="z. B. 001"
+            maxlength="3"
             autocomplete="off"
             inputmode="numeric"
           />
@@ -192,9 +192,15 @@
     3: { badge: "Abholbereit ✓",        msg: "Fertig! Du kannst dein Kleidungsstück während der Öffnungszeiten abholen." }
   };
 
+  // Nur Ziffern erlauben
+  document.getElementById("auftragNr").addEventListener("input", function(){
+    this.value = this.value.replace(/[^0-9]/g, "").slice(0, 3);
+  });
+
   async function checkStatus() {
-    const nr = document.getElementById("auftragNr").value.trim();
-    if (!nr) { document.getElementById("auftragNr").focus(); return; }
+    const raw = document.getElementById("auftragNr").value.trim();
+    if (!raw) { document.getElementById("auftragNr").focus(); return; }
+    if (!/^\d{1,3}$/.test(raw) || parseInt(raw, 10) > 999) { showError(); return; }
 
     let data;
     try {
@@ -205,9 +211,9 @@
       return;
     }
 
-    const auftrag = data.auftraege && data.auftraege[nr];
+    const auftrag = data.auftraege && data.auftraege[raw];
     if (!auftrag) { showError(); return; }
-    showResult(nr, auftrag);
+    showResult(raw, auftrag);
   }
 
   function showResult(nr, auftrag) {
