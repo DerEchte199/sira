@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auftragsstatus | Änderungsschneiderei Sira</title>
+  <meta name="description" content="Prüfe den aktuellen Status deines Kleidungsstücks bei der Änderungsschneiderei Sira in Ochsenfurt." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" aria-label="Menü">
+  <div class="drawer-head">
+    <div class="drawer-title">Menü</div>
+    <button class="close-btn" id="closeDrawer" aria-label="Menü schließen">✕</button>
+  </div>
+  <nav class="nav-links">
+    <a href="../">Start</a>
+    <a href="../leistungen/">Leistungen</a>
+    <a href="../ueber-uns/">Über uns</a>
+    <a href="../afghanische-kleider/">Afghanische Kleider</a>
+    <a href="../bewertungen/">Bewertungen</a>
+    <a href="../kontakt/">Kontakt &amp; Anfahrt</a>
+    <a href="./" class="nav-active">📋 Auftragsstatus</a>
+    <a href="../impressum/">Impressum</a>
+    <a href="../datenschutz/">Datenschutz</a>
+  </nav>
+  <div class="drawer-cta">
+    <a class="btn" href="tel:015750701684">Jetzt anrufen</a>
+    <a class="btn btn-ghost dark" href="https://wa.me/4915750701684?text=Hallo%2C%20ich%20h%C3%A4tte%20eine%20Frage%20zu%20meinem%20Auftrag." target="_blank" rel="noreferrer">WhatsApp schreiben</a>
+  </div>
+  <div class="drawer-note">Ohne Termin möglich. Bei besonderen Stücken gerne kurz anrufen.</div>
+</aside>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="left-wrap">
+      <button class="menu-btn" id="openDrawer" aria-label="Menü öffnen">
+        <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <div class="brand">
+        <div class="brand-name">Änderungsschneiderei <span class="accent">Sira</span></div>
+        <p class="brand-sub">Auftragsstatus</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span class="pill">Ohne Termin möglich</span>
+      <a class="btn btn-small" href="tel:015750701684">Anrufen</a>
+    </div>
+  </div>
+</header>
+
+<main id="content">
+
+  <section class="hero" style="--hero-img:url('../assets/images/hero-naehmaschine.jpg');min-height:38vh;" aria-label="Auftragsstatus Hero">
+    <div class="container">
+      <h1>Auftragsstatus prüfen</h1>
+      <p class="lead">
+        Kleidungsstück abgegeben? Gib deine Auftragsnummer ein und sieh sofort, wie weit wir sind.
+      </p>
+      <span class="badge">Dein Auftrag auf einen Blick</span>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="section">
+
+      <div class="tracker-card">
+        <label for="auftragNr" class="tracker-label">Auftragsnummer eingeben</label>
+        <p class="tracker-hint">Die Nummer steht auf deinem Abholschein.</p>
+        <div class="tracker-input-wrap">
+          <input
+            type="text"
+            id="auftragNr"
+            class="tracker-input"
+            placeholder="z. B. 1001"
+            maxlength="20"
+            autocomplete="off"
+            inputmode="numeric"
+          />
+          <button class="btn" id="checkBtn">Status prüfen</button>
+        </div>
+
+        <!-- Ergebnis -->
+        <div id="result" class="tracker-result" style="display:none" aria-live="polite">
+
+          <div id="statusBadge" class="tracker-status-badge"></div>
+
+          <!-- Fortschrittsanzeige -->
+          <div class="stepper" aria-label="Auftragsfortschritt">
+            <div class="step" id="step1">
+              <div class="step-icon" aria-hidden="true"><span class="step-num">1</span><span class="step-check">✓</span></div>
+              <div class="step-label">Auftrag<br>eingegangen</div>
+            </div>
+            <div class="step-line" id="line1"></div>
+            <div class="step" id="step2">
+              <div class="step-icon" aria-hidden="true"><span class="step-num">2</span><span class="step-check">✓</span></div>
+              <div class="step-label">In<br>Bearbeitung</div>
+            </div>
+            <div class="step-line" id="line2"></div>
+            <div class="step" id="step3">
+              <div class="step-icon" aria-hidden="true"><span class="step-num">3</span><span class="step-check">✓</span></div>
+              <div class="step-label">Abholbereit</div>
+            </div>
+          </div>
+
+          <div id="statusMsg" class="tracker-msg"></div>
+
+          <div class="tracker-info">
+            <div class="tracker-info-row"><span>Auftragsnr.</span><span id="infoNr"></span></div>
+            <div class="tracker-info-row"><span>Kleidungsstück</span><span id="infoArtikel"></span></div>
+            <div class="tracker-info-row"><span>Abgabedatum</span><span id="infoDatum"></span></div>
+          </div>
+
+          <div id="abholReady" class="tracker-ready-box" style="display:none">
+            <span class="tracker-ready-icon">🎉</span>
+            <div>
+              <strong>Dein Kleidungsstück wartet auf dich!</strong>
+              <p>Di–Fr 09:00–14:00 Uhr &nbsp;|&nbsp; Sa 09:00–12:00 Uhr<br>Marktbreiter Str. 54, 97199 Ochsenfurt</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fehler -->
+        <div id="tracker-error" class="tracker-error-box" style="display:none" aria-live="polite">
+          <span style="font-size:22px">❓</span>
+          <div>
+            <strong>Keine Auftrag gefunden.</strong>
+            <p>Bitte prüfe die Nummer auf deinem Abholschein. Bei Fragen ruf uns einfach an: <a href="tel:015750701684" style="color:var(--accent);font-weight:700">01575 0701684</a></p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Änderungsschneiderei <span class="accent">Sira</span></div>
+        <p>Ihr Atelier für Änderungen und Reparaturen in Ochsenfurt. Sorgfältig, schnell und fair.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <a href="../leistungen/">Leistungen</a>
+        <a href="../ueber-uns/">Über uns</a>
+        <a href="../afghanische-kleider/">Afghanische Kleider</a>
+        <a href="../bewertungen/">Bewertungen</a>
+        <a href="../kontakt/">Kontakt &amp; Anfahrt</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Kontakt</h4>
+        <p><a href="tel:015750701684">01575 0701684</a></p>
+        <p><a href="https://wa.me/4915750701684?text=Hallo%2C%20ich%20h%C3%A4tte%20eine%20Frage%20zu%20meinem%20Auftrag." target="_blank" rel="noreferrer">WhatsApp schreiben</a></p>
+        <p>Marktbreiter Str. 54<br>97199 Ochsenfurt</p>
+        <p>Di–Fr 09:00–14:00 Uhr<br>Sa 09:00–12:00 Uhr</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Änderungsschneiderei Sira</div>
+      <div class="footer-legal">
+        <a href="../impressum/">Impressum</a><span class="dot">·</span>
+        <a href="../datenschutz/">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/4915750701684?text=Hallo%2C%20ich%20h%C3%A4tte%20eine%20Frage%20zu%20meinem%20Auftrag." target="_blank" rel="noreferrer" aria-label="WhatsApp schreiben">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const drawer = document.getElementById("drawer");
+  const backdrop = document.getElementById("backdrop");
+  document.getElementById("openDrawer").addEventListener("click", ()=>{drawer.classList.add("open"); backdrop.classList.add("open");});
+  document.getElementById("closeDrawer").addEventListener("click", ()=>{drawer.classList.remove("open"); backdrop.classList.remove("open");});
+  backdrop.addEventListener("click", ()=>{drawer.classList.remove("open"); backdrop.classList.remove("open");});
+  document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){drawer.classList.remove("open"); backdrop.classList.remove("open");}});
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ===== Auftragsstatus Logik ===== */
+  const LABELS = {
+    1: { badge: "Auftrag eingegangen",  msg: "Dein Kleidungsstück ist bei uns angekommen. Wir kümmern uns in Kürze darum." },
+    2: { badge: "In Bearbeitung",       msg: "Wir arbeiten gerade an deinem Kleidungsstück. Bitte noch etwas Geduld." },
+    3: { badge: "Abholbereit ✓",        msg: "Fertig! Du kannst dein Kleidungsstück während der Öffnungszeiten abholen." }
+  };
+
+  async function checkStatus() {
+    const nr = document.getElementById("auftragNr").value.trim();
+    if (!nr) { document.getElementById("auftragNr").focus(); return; }
+
+    let data;
+    try {
+      const res = await fetch("../auftraege.json");
+      data = await res.json();
+    } catch(e) {
+      showError();
+      return;
+    }
+
+    const auftrag = data.auftraege && data.auftraege[nr];
+    if (!auftrag) { showError(); return; }
+    showResult(nr, auftrag);
+  }
+
+  function showResult(nr, auftrag) {
+    document.getElementById("tracker-error").style.display = "none";
+    document.getElementById("result").style.display = "block";
+
+    const status = auftrag.status;
+
+    // Steps
+    [1, 2, 3].forEach(s => {
+      const step = document.getElementById("step" + s);
+      const line = document.getElementById("line" + s);
+      step.className = "step" + (s < status ? " done" : s === status ? " active" : "");
+      if (line) line.className = "step-line" + (s < status ? " done" : "");
+    });
+
+    // Status badge
+    const info = LABELS[status] || LABELS[1];
+    const badge = document.getElementById("statusBadge");
+    badge.textContent = info.badge;
+    badge.className = "tracker-status-badge badge-s" + status;
+    document.getElementById("statusMsg").textContent = info.msg;
+
+    // Details
+    document.getElementById("infoNr").textContent      = nr;
+    document.getElementById("infoArtikel").textContent = auftrag.artikel || "–";
+    document.getElementById("infoDatum").textContent   = auftrag.datum   || "–";
+
+    // Abholbereit-Box
+    document.getElementById("abholReady").style.display = status === 3 ? "flex" : "none";
+  }
+
+  function showError() {
+    document.getElementById("result").style.display = "none";
+    document.getElementById("tracker-error").style.display = "flex";
+  }
+
+  document.getElementById("checkBtn").addEventListener("click", checkStatus);
+  document.getElementById("auftragNr").addEventListener("keydown", e => { if (e.key === "Enter") checkStatus(); });
+</script>
+</body>
+</html>

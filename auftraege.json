@@ -1,0 +1,13 @@
+{
+  "_anleitung": {
+    "status_1": "Auftrag eingegangen",
+    "status_2": "In Bearbeitung",
+    "status_3": "Abholbereit",
+    "hinweis": "Neue Aufträge einfach unten eintragen. Nummer, Status (1-3), Artikel und Datum."
+  },
+  "auftraege": {
+    "1001": { "status": 3, "artikel": "Hose kürzen (Jeans, blau)", "datum": "14.04.2026" },
+    "1002": { "status": 2, "artikel": "Kleid anpassen (Abendkleid, rot)", "datum": "15.04.2026" },
+    "1003": { "status": 1, "artikel": "Reißverschluss erneuern (Jacke, schwarz)", "datum": "16.04.2026" }
+  }
+}
