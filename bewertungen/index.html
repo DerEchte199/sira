@@ -30,7 +30,7 @@
     <a href="../afghanische-kleider/">Afghanische Kleider</a>
     <a href="./">Bewertungen</a>
     <a href="../kontakt/">Kontakt & Anfahrt</a>
-    <a href="../auftrag/" style="background:rgba(107,33,168,.06);color:var(--accent);border-color:rgba(107,33,168,.14)">📋 Auftragsstatus</a>
+    <a href="../auftrag/" class="auftrag-link" style="display:none;background:rgba(107,33,168,.06);color:var(--accent);border-color:rgba(107,33,168,.14)">📋 Auftragsstatus</a>
       <a href="../impressum/">Impressum</a>
     <a href="../datenschutz/">Datenschutz</a>
   </nav>
@@ -180,7 +180,7 @@
     <div class="footer-bottom">
       <div>© <span id="year"></span> Änderungsschneiderei Sira</div>
       <div class="footer-legal">
-        <a href="../auftrag/" style="background:rgba(107,33,168,.06);color:var(--accent);border-color:rgba(107,33,168,.14)">📋 Auftragsstatus</a>
+        <a href="../auftrag/" class="auftrag-link" style="display:none;background:rgba(107,33,168,.06);color:var(--accent);border-color:rgba(107,33,168,.14)">📋 Auftragsstatus</a>
       <a href="../impressum/">Impressum</a><span class="dot">·</span>
         <a href="../datenschutz/">Datenschutz</a>
       </div>
@@ -200,6 +200,9 @@
   backdrop.addEventListener("click", ()=>{drawer.classList.remove("open"); backdrop.classList.remove("open");});
   document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){drawer.classList.remove("open"); backdrop.classList.remove("open");}});
   document.getElementById("year").textContent = new Date().getFullYear();
+  if(new Date() >= new Date("2026-04-21T00:00:00")){
+    document.querySelectorAll('.auftrag-link').forEach(function(el){el.style.display='';});
+  }
 </script>
 </body>
 </html>
