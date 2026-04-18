@@ -122,6 +122,20 @@
       </div>
     </section>
 
+    <!-- Auftragsstatus Ankündigung (bis 01.05.2026) -->
+    <div id="auftragTeaser" class="auftrag-teaser">
+      <div class="container">
+        <div class="auftrag-teaser-inner">
+          <div class="auftrag-teaser-icon">📋</div>
+          <div class="auftrag-teaser-text">
+            <strong>Neu ab 1. Mai: Auftragsstatus online prüfen</strong>
+            <p>Ab dem 1. Mai kannst du deine Abholscheinnummer eingeben und siehst sofort, wie weit dein Kleidungsstück ist.</p>
+          </div>
+          <span class="badge">Ab 01. Mai</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Auftragsstatus Banner -->
     <div class="tracker-banner auftrag-link" style="display:none">
       <div class="container">
@@ -376,9 +390,11 @@
       notice.style.display = "none";
     }
 
-    // Auftragsstatus ab 21.04.2026 sichtbar
-    if(new Date() >= new Date("2026-04-21T00:00:00")){
+    // Auftragsstatus ab 01.05.2026 sichtbar, Teaser davor
+    if(new Date() >= new Date("2026-05-01T00:00:00")){
       document.querySelectorAll('.auftrag-link').forEach(function(el){el.style.display='';});
+      var t = document.getElementById("auftragTeaser");
+      if(t) t.style.display = "none";
     }
   </script>
 
