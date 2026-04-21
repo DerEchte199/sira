@@ -949,6 +949,11 @@ main{padding:0 0 48px}
   display:flex;gap:10px;
   margin-bottom:10px;
 }
+/* Zwei-Felder-Layout */
+.tracker-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.tracker-field-label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.03em;text-transform:uppercase}
+.tracker-btn-full{width:100%;padding:15px}
+@media(max-width:540px){.tracker-fields{grid-template-columns:1fr}}
 .tracker-input{
   flex:1;
   padding:14px 16px;
