@@ -138,13 +138,25 @@
         </div>
 
         <div>
-          <h2>Google Maps</h2>
-          <p>Hier findest du unseren Standort.</p>
+          <h2>Standort &amp; Anfahrt</h2>
+          <p>Marktbreiter Str. 54, 97199 Ochsenfurt</p>
 
-          <div class="map">
+          <div class="map-consent" id="mapConsent">
+            <div class="map-consent-inner">
+              <span class="map-consent-icon">📍</span>
+              <strong>Karte anzeigen?</strong>
+              <p class="map-consent-hint">
+                Durch das Laden der Karte werden Daten (u.&nbsp;a. Ihre IP-Adresse) an Google LLC (USA) übertragen.
+                Details in unserer <a href="../datenschutz/" style="color:var(--accent)">Datenschutzerklärung</a>.
+              </p>
+              <button class="btn" id="mapLoadBtn">Google Maps laden</button>
+            </div>
+          </div>
+          <div id="mapFrame" style="display:none" class="map">
             <iframe
-              title="Google Maps"
-              src="https://www.google.com/maps?q=Marktbreiter%20Str.%2054%2C%2097199%20Ochsenfurt&output=embed"
+              title="Google Maps – Änderungsschneiderei Sira Ochsenfurt"
+              src=""
+              data-src="https://www.google.com/maps?q=Marktbreiter%20Str.%2054%2C%2097199%20Ochsenfurt&output=embed"
               width="100%" height="100%"
               style="border:0"
               loading="lazy"
@@ -213,6 +225,11 @@
   if(new Date() >= new Date("2026-05-01T00:00:00")){
     document.querySelectorAll('.auftrag-link').forEach(function(el){el.style.display='';});
   }
+  document.getElementById("mapLoadBtn").addEventListener("click", function(){
+    var f = document.getElementById("mapFrame"), p = document.getElementById("mapConsent");
+    f.querySelector("iframe").src = f.querySelector("iframe").dataset.src;
+    p.style.display = "none"; f.style.display = "block";
+  });
 </script>
 </body>
 </html>
