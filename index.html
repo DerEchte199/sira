@@ -160,18 +160,35 @@
       </div>
     </section>
 
-    <!-- Auftragsstatus Banner -->
-    <div class="tracker-banner auftrag-link"
+    <!-- Auftragsstatus -->
+    <section class="auftrag-highlight">
       <div class="container">
-        <div class="tracker-banner-inner">
-          <div class="tracker-banner-text">
-            <h3>📋 Auftragsstatus prüfen</h3>
-            <p>Kleidungsstück abgegeben? Gib deine Auftragsnummer ein und sieh sofort, wie weit wir sind.</p>
+        <div class="auftrag-hl-inner">
+          <div class="auftrag-hl-left">
+            <div class="auftrag-hl-icon">📋</div>
+            <h2 class="auftrag-hl-title">Auftragsstatus online prüfen</h2>
+            <p class="auftrag-hl-desc">
+              Kleidungsstück abgegeben? Gib deine Auftragsnummer und das Abholdatum ein –
+              beide Angaben stehen auf deinem Abholschein.
+            </p>
           </div>
-          <a class="btn" href="auftrag/" style="white-space:nowrap">Status prüfen &rarr;</a>
+          <div class="auftrag-hl-form">
+            <div class="auftrag-hl-fields">
+              <div class="auftrag-hl-field">
+                <label class="auftrag-hl-label" for="homeNr">Auftragsnummer</label>
+                <input type="text" id="homeNr" class="auftrag-hl-input" placeholder="z. B. 042" maxlength="3" inputmode="numeric" autocomplete="off">
+              </div>
+              <div class="auftrag-hl-field">
+                <label class="auftrag-hl-label" for="homeDatum">Abholdatum</label>
+                <input type="date" id="homeDatum" class="auftrag-hl-input" autocomplete="off">
+              </div>
+            </div>
+            <button class="auftrag-hl-btn" id="homeCheckBtn">Status prüfen &rarr;</button>
+            <div class="auftrag-hl-error" id="homeError" style="display:none">Bitte beide Felder ausfüllen.</div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Trust Strip -->
     <div class="trust-strip">
@@ -407,6 +424,17 @@
       },{threshold:0.1});
       document.querySelectorAll('.fade-up').forEach(function(el){ obs.observe(el); });
     })();
+
+    // Auftragsstatus Mini-Form auf Startseite
+    document.getElementById("homeCheckBtn").addEventListener("click", function(){
+      var nr = document.getElementById("homeNr").value.replace(/\D/g,'');
+      var datum = document.getElementById("homeDatum").value;
+      var err = document.getElementById("homeError");
+      if(!nr || !datum){ err.style.display='block'; return; }
+      err.style.display='none';
+      window.location.href = "auftrag/?nr=" + encodeURIComponent(nr) + "&datum=" + encodeURIComponent(datum);
+    });
+    document.getElementById("homeNr").addEventListener("input", function(){ this.value=this.value.replace(/\D/g,''); });
 
     // Osterhinweis nach Ostermontag (07.04.2026) ausblenden
     const notice = document.getElementById("holidayNotice");
