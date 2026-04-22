@@ -299,6 +299,14 @@
   ["auftragNr","abholdatum"].forEach(id =>
     document.getElementById(id).addEventListener("keydown", e => { if(e.key==="Enter") checkStatus(); })
   );
+
+  // Auto-fill from URL params (z.B. von der Startseite)
+  (function(){
+    var p = new URLSearchParams(window.location.search);
+    if(p.get("nr"))    document.getElementById("auftragNr").value  = p.get("nr");
+    if(p.get("datum")) document.getElementById("abholdatum").value = p.get("datum");
+    if(p.get("nr") && p.get("datum")) checkStatus();
+  })();
 </script>
 </body>
 </html>

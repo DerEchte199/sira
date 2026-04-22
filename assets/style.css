@@ -906,37 +906,127 @@ main{padding:0 0 48px}
   border-color:rgba(107,33,168,.18) !important;
 }
 
-/* Tracker Status Banner auf Startseite */
-.tracker-banner{
-  background:linear-gradient(135deg,#f8f7ff 0%,#ffffff 100%);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:28px 0;
-}
-.tracker-banner-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:20px;flex-wrap:wrap;
-}
-.tracker-banner-text h3{margin:0 0 5px;font-size:20px;letter-spacing:-.2px}
-.tracker-banner-text p{margin:0;color:var(--muted);font-size:14px}
-@media(max-width:600px){
-  .tracker-banner-inner{flex-direction:column;align-items:flex-start}
-  .tracker-banner-inner .btn{width:100%}
-}
 
-/* Auftragsstatus Ankündigung (Teaser vor Launch) */
-.auftrag-teaser{
-  background:linear-gradient(135deg,#f8f7ff 0%,#ede9fe 100%);
-  border-top:2px solid rgba(107,33,168,.18);
-  border-bottom:2px solid rgba(107,33,168,.18);
-  padding:22px 0;
+/* ===== Auftrag Highlight Section (Startseite) ===== */
+.auftrag-highlight{
+  background:linear-gradient(135deg,#3b0764 0%,#5b21b6 55%,#7c3aed 100%);
+  padding:52px 0;
+  position:relative;
+  overflow:hidden;
 }
-.auftrag-teaser-inner{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.auftrag-teaser-icon{font-size:32px;flex-shrink:0}
-.auftrag-teaser-text{flex:1;min-width:0}
-.auftrag-teaser-text strong{display:block;font-size:16px;font-weight:700;margin:0 0 4px;color:var(--text)}
-.auftrag-teaser-text p{margin:0;font-size:14px;color:var(--muted)}
-@media(max-width:600px){.auftrag-teaser-inner{gap:12px}}
+.auftrag-highlight::before{
+  content:"";
+  position:absolute;top:-80px;right:-80px;
+  width:340px;height:340px;
+  background:rgba(255,255,255,.05);
+  border-radius:50%;
+  pointer-events:none;
+}
+.auftrag-highlight::after{
+  content:"";
+  position:absolute;bottom:-90px;left:-50px;
+  width:260px;height:260px;
+  background:rgba(255,255,255,.04);
+  border-radius:50%;
+  pointer-events:none;
+}
+.auftrag-hl-inner{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:48px;
+  align-items:center;
+  position:relative;z-index:1;
+}
+.auftrag-hl-icon{font-size:46px;line-height:1;margin-bottom:14px}
+.auftrag-hl-title{
+  margin:0 0 14px;
+  font-size:clamp(22px,3vw,30px);
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-.3px;
+  line-height:1.15;
+}
+.auftrag-hl-desc{
+  margin:0;
+  color:rgba(255,255,255,.78);
+  font-size:15px;
+  line-height:1.75;
+}
+.auftrag-hl-form{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:20px;
+  padding:28px 24px;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.auftrag-hl-fields{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:14px;
+}
+.auftrag-hl-label{
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  color:rgba(255,255,255,.70);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  margin-bottom:7px;
+}
+.auftrag-hl-input{
+  width:100%;
+  padding:13px 14px;
+  border:1.5px solid rgba(255,255,255,.22);
+  border-radius:12px;
+  font-size:15px;
+  font-family:inherit;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  outline:none;
+  transition:border-color .2s ease, background .2s ease;
+  box-sizing:border-box;
+}
+.auftrag-hl-input::placeholder{color:rgba(255,255,255,.40)}
+.auftrag-hl-input::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.55;cursor:pointer}
+.auftrag-hl-input:focus{
+  border-color:rgba(255,255,255,.65);
+  background:rgba(255,255,255,.18);
+}
+.auftrag-hl-btn{
+  width:100%;
+  padding:15px;
+  border-radius:12px;
+  border:none;
+  background:#fff;
+  color:#5b21b6;
+  font-weight:800;
+  font-size:16px;
+  font-family:inherit;
+  cursor:pointer;
+  transition:opacity .15s ease, transform .15s ease;
+  letter-spacing:-.1px;
+  box-shadow:0 4px 18px rgba(0,0,0,.18);
+}
+.auftrag-hl-btn:hover{opacity:.93;transform:translateY(-1px)}
+.auftrag-hl-btn:active{transform:translateY(0)}
+.auftrag-hl-error{
+  margin-top:10px;
+  font-size:13px;
+  color:rgba(255,180,180,.95);
+  font-weight:600;
+}
+@media(max-width:860px){
+  .auftrag-hl-inner{grid-template-columns:1fr;gap:28px}
+  .auftrag-highlight{padding:40px 0}
+}
+@media(max-width:520px){
+  .auftrag-highlight{padding:32px 0}
+  .auftrag-hl-fields{grid-template-columns:1fr}
+  .auftrag-hl-form{padding:20px 16px;border-radius:16px}
+  .auftrag-hl-icon{font-size:36px;margin-bottom:10px}
+}
 
 /* Tracker Card */
 .tracker-card{
