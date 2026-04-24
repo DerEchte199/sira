@@ -202,24 +202,24 @@
       </div>
     </div>
 
-    <!-- Osterferien-Hinweis (wird nach 06.04.2026 automatisch ausgeblendet) -->
+    <!-- Feiertagshinweis 01.–02.05.2026 -->
     <div class="holiday-notice" id="holidayNotice">
       <div class="container">
         <div class="holiday-inner">
-          <div class="holiday-icon">🐣</div>
+          <div class="holiday-icon">🌸</div>
           <div class="holiday-body">
-            <p class="holiday-title">Frohe Ostern! Wir sind an den Feiertagen geschlossen.</p>
-            <p class="holiday-sub">Ab Dienstag, 07.04.2026 sind wir wieder zu den gewohnten Zeiten für euch da.</p>
+            <p class="holiday-title">Wir sind am 1. und 2. Mai geschlossen.</p>
+            <p class="holiday-sub">Ab Montag, 05.05.2026 sind wir wieder zu den gewohnten Zeiten für Sie da.</p>
           </div>
           <div class="holiday-chips">
             <div class="holiday-chip">
-              <span class="holiday-chip-label">Karfreitag</span>
-              <span class="holiday-chip-date">03.04.2026</span>
+              <span class="holiday-chip-label">Tag der Arbeit</span>
+              <span class="holiday-chip-date">01.05.2026</span>
               <span class="holiday-chip-closed">Geschlossen</span>
             </div>
             <div class="holiday-chip">
-              <span class="holiday-chip-label">Ostermontag</span>
-              <span class="holiday-chip-date">06.04.2026</span>
+              <span class="holiday-chip-label">Freitag</span>
+              <span class="holiday-chip-date">02.05.2026</span>
               <span class="holiday-chip-closed">Geschlossen</span>
             </div>
           </div>
@@ -436,11 +436,11 @@
     });
     document.getElementById("homeNr").addEventListener("input", function(){ this.value=this.value.replace(/\D/g,''); });
 
-    // Osterhinweis nach Ostermontag (07.04.2026) ausblenden
-    const notice = document.getElementById("holidayNotice");
-    if(notice && new Date() > new Date("2026-04-07T00:00:00")){
-      notice.style.display = "none";
-    }
+    // Feiertagshinweis nach 04.05.2026 ausblenden
+    (function(){
+      var n = document.getElementById("holidayNotice");
+      if(n && new Date() > new Date("2026-05-04T23:59:59")) n.style.display="none";
+    })();
 
 </script>
 
