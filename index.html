@@ -202,24 +202,19 @@
       </div>
     </div>
 
-    <!-- Feiertagshinweis 01.–02.05.2026 -->
+    <!-- Feiertagshinweis 14.05.2026 -->
     <div class="holiday-notice" id="holidayNotice">
       <div class="container">
         <div class="holiday-inner">
-          <div class="holiday-icon">🌸</div>
+          <div class="holiday-icon">⛪</div>
           <div class="holiday-body">
-            <p class="holiday-title">Wir sind am 1. und 2. Mai geschlossen.</p>
-            <p class="holiday-sub">Ab Dienstag, 05.05.2026 sind wir wieder zu den gewohnten Zeiten für Sie da.</p>
+            <p class="holiday-title">Wir sind am 14. Mai (Christi Himmelfahrt) geschlossen.</p>
+            <p class="holiday-sub">Ab Freitag, 15.05.2026 sind wir wieder zu den gewohnten Zeiten für Sie da.</p>
           </div>
           <div class="holiday-chips">
             <div class="holiday-chip">
-              <span class="holiday-chip-label">Tag der Arbeit</span>
-              <span class="holiday-chip-date">01.05.2026</span>
-              <span class="holiday-chip-closed">Geschlossen</span>
-            </div>
-            <div class="holiday-chip">
-              <span class="holiday-chip-label">Samstag</span>
-              <span class="holiday-chip-date">02.05.2026</span>
+              <span class="holiday-chip-label">Christi Himmelfahrt</span>
+              <span class="holiday-chip-date">14.05.2026</span>
               <span class="holiday-chip-closed">Geschlossen</span>
             </div>
           </div>
@@ -439,7 +434,7 @@
     // Feiertagshinweis nach 04.05.2026 ausblenden
     (function(){
       var n = document.getElementById("holidayNotice");
-      if(n && new Date() > new Date("2026-05-04T23:59:59")) n.style.display="none";
+      if(n && new Date() > new Date("2026-05-14T23:59:59")) n.style.display="none";
     })();
 
 </script>
