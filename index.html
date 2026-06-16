@@ -202,22 +202,16 @@
       </div>
     </div>
 
-    <!-- Feiertagshinweis 14.05.2026 -->
-    <div class="holiday-notice" id="holidayNotice">
+    <!-- Feiertagshinweis — Inhalt wird via config.json geladen -->
+    <div class="holiday-notice" id="holidayNotice" style="display:none">
       <div class="container">
         <div class="holiday-inner">
-          <div class="holiday-icon">⛪</div>
+          <div class="holiday-icon"></div>
           <div class="holiday-body">
-            <p class="holiday-title">Wir sind am 14. Mai (Christi Himmelfahrt) geschlossen.</p>
-            <p class="holiday-sub">Ab Freitag, 15.05.2026 sind wir wieder zu den gewohnten Zeiten für Sie da.</p>
+            <p class="holiday-title"></p>
+            <p class="holiday-sub"></p>
           </div>
-          <div class="holiday-chips">
-            <div class="holiday-chip">
-              <span class="holiday-chip-label">Christi Himmelfahrt</span>
-              <span class="holiday-chip-date">14.05.2026</span>
-              <span class="holiday-chip-closed">Geschlossen</span>
-            </div>
-          </div>
+          <div class="holiday-chips"></div>
         </div>
       </div>
     </div>
@@ -431,11 +425,27 @@
     });
     document.getElementById("homeNr").addEventListener("input", function(){ this.value=this.value.replace(/\D/g,''); });
 
-    // Feiertagshinweis nach 04.05.2026 ausblenden
-    (function(){
-      var n = document.getElementById("holidayNotice");
-      if(n && new Date() > new Date("2026-05-14T23:59:59")) n.style.display="none";
-    })();
+    // Feiertagshinweis aus config.json laden
+    fetch('/config.json')
+      .then(function(r){ return r.json(); })
+      .then(function(cfg){
+        var h = cfg.hinweis;
+        var n = document.getElementById('holidayNotice');
+        if(!n || !h || !h.aktiv){ return; }
+        var heute = new Date(); heute.setHours(0,0,0,0);
+        var von = new Date(h.von);
+        var bis = new Date(h.bis); bis.setHours(23,59,59,0);
+        if(heute < von || heute > bis){ return; }
+        n.querySelector('.holiday-icon').textContent = h.icon || '⚠️';
+        n.querySelector('.holiday-title').textContent = h.titel;
+        n.querySelector('.holiday-sub').textContent = h.sub;
+        var chips = n.querySelector('.holiday-chips');
+        chips.innerHTML = (h.tage||[]).map(function(t){
+          return '<div class="holiday-chip"><span class="holiday-chip-label">'+t.label+'</span><span class="holiday-chip-date">'+t.datum+'</span><span class="holiday-chip-closed">Geschlossen</span></div>';
+        }).join('');
+        n.style.display = '';
+      })
+      .catch(function(){});
 
 </script>
 

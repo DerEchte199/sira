@@ -1,0 +1,20 @@
+{
+  "_anleitung": [
+    "Diese Datei steuert den Feiertagshinweis auf der Startseite.",
+    "aktiv: true = Hinweis anzeigen, false = Hinweis ausblenden.",
+    "von / bis: Datum im Format JJJJ-MM-TT (z.B. 2026-06-20).",
+    "Nach dem 'bis'-Datum verschwindet der Hinweis automatisch.",
+    "tage: Liste der geschlossenen Tage mit Label und Anzeige-Datum."
+  ],
+  "hinweis": {
+    "aktiv": true,
+    "icon": "⚠️",
+    "titel": "Wir sind am 20. Juni kurzfristig geschlossen.",
+    "sub": "Ab Dienstag, 23.06.2026 sind wir wieder für Sie da.",
+    "von": "2026-06-20",
+    "bis": "2026-06-20",
+    "tage": [
+      { "label": "Samstag", "datum": "20.06.2026" }
+    ]
+  }
+}
