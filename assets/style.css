@@ -469,18 +469,29 @@ main{padding:0 0 48px}
 .location-map iframe{border-radius:14px;display:block}
 
 /* ===== Feiertagshinweis ===== */
+@keyframes holiday-glow{
+  0%,100%{box-shadow:0 0 0 0 rgba(251,146,60,.0), inset 0 0 0 0 rgba(251,146,60,.0)}
+  50%{box-shadow:0 4px 32px rgba(251,146,60,.45), inset 0 0 60px rgba(251,146,60,.08)}
+}
+@keyframes holiday-bar{
+  0%{background-position:0% 50%}
+  100%{background-position:200% 50%}
+}
 .holiday-notice{
-  background:linear-gradient(135deg,#fefce8 0%,#f0fdf4 60%,#fefce8 100%);
-  border-bottom:1px solid rgba(132,204,22,.22);
-  padding:18px 0;
+  background:linear-gradient(135deg,#1c0a00 0%,#3b1200 40%,#1c0a00 100%);
+  border-bottom:2px solid rgba(251,146,60,.4);
+  padding:20px 0;
   position:relative;
   overflow:hidden;
+  animation:holiday-glow 2.4s ease-in-out infinite;
 }
 .holiday-notice::before{
   content:"";
   position:absolute;top:0;left:0;right:0;
-  height:3px;
-  background:linear-gradient(90deg,#f59e0b,#84cc16,#f59e0b);
+  height:4px;
+  background:linear-gradient(90deg,#f97316,#fbbf24,#ef4444,#fbbf24,#f97316);
+  background-size:200% auto;
+  animation:holiday-bar 2s linear infinite;
 }
 .holiday-inner{
   display:flex;
@@ -489,21 +500,23 @@ main{padding:0 0 48px}
   flex-wrap:wrap;
 }
 .holiday-icon{
-  font-size:36px;
+  font-size:40px;
   flex-shrink:0;
   line-height:1;
+  filter:drop-shadow(0 0 8px rgba(251,146,60,.8));
 }
 .holiday-body{flex:1;min-width:180px}
 .holiday-title{
-  margin:0 0 3px;
-  font-size:15px;
+  margin:0 0 4px;
+  font-size:16px;
   font-weight:800;
-  color:var(--text);
+  color:#fff;
+  text-shadow:0 0 16px rgba(251,146,60,.6);
 }
 .holiday-sub{
   margin:0;
   font-size:13px;
-  color:var(--muted);
+  color:rgba(255,255,255,.7);
 }
 .holiday-chips{
   display:flex;
@@ -511,12 +524,13 @@ main{padding:0 0 48px}
   flex-wrap:wrap;
 }
 .holiday-chip{
-  background:#fff;
-  border:1px solid rgba(132,204,22,.35);
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(251,146,60,.5);
   border-radius:12px;
   padding:10px 16px;
   text-align:center;
   min-width:130px;
+  backdrop-filter:blur(6px);
 }
 .holiday-chip-label{
   display:block;
@@ -524,19 +538,19 @@ main{padding:0 0 48px}
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.5px;
-  color:#65a30d;
+  color:#fbbf24;
   margin-bottom:3px;
 }
 .holiday-chip-date{
   display:block;
   font-size:14px;
   font-weight:800;
-  color:var(--text);
+  color:#fff;
 }
 .holiday-chip-closed{
   display:block;
   font-size:12px;
-  color:#dc2626;
+  color:#f87171;
   font-weight:700;
   margin-top:2px;
 }
@@ -545,6 +559,9 @@ main{padding:0 0 48px}
   .holiday-inner{gap:14px}
   .holiday-chips{gap:8px;width:100%}
   .holiday-chip{flex:1;min-width:110px}
+}
+@media(max-width:480px){
+  .holiday-chip{backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 
 /* ===== FAQ Accordion ===== */
