@@ -11,8 +11,8 @@
     "icon": "⚠️",
     "titel": "Wir sind am 20. Juni kurzfristig geschlossen.",
     "sub": "Ab Dienstag, 23.06.2026 sind wir wieder für Sie da.",
-    "von": "2026-06-20",
-    "bis": "2026-06-20",
+    "von": "2026-06-15",
+    "bis": "2026-06-23",
     "tage": [
       { "label": "Samstag", "datum": "20.06.2026" }
     ]
