@@ -471,14 +471,14 @@ main{padding:0 0 48px}
 /* ===== Feiertagshinweis ===== */
 @keyframes holiday-pulse{
   0%,100%{
-    background:linear-gradient(135deg,#1c0a00 0%,#3b1200 40%,#1c0a00 100%);
-    box-shadow:0 0 0 0 rgba(251,146,60,0);
-    border-color:rgba(251,146,60,.3);
+    background:linear-gradient(135deg,#0f0520 0%,#2d0a5e 40%,#0f0520 100%);
+    box-shadow:0 0 0 0 rgba(107,33,168,0);
+    border-color:rgba(107,33,168,.3);
   }
   50%{
-    background:linear-gradient(135deg,#3b1200 0%,#7c2d00 40%,#3b1200 100%);
-    box-shadow:0 0 28px 6px rgba(251,146,60,.55);
-    border-color:rgba(251,146,60,.9);
+    background:linear-gradient(135deg,#2d0a5e 0%,#4c1d95 40%,#2d0a5e 100%);
+    box-shadow:0 0 28px 6px rgba(107,33,168,.6);
+    border-color:rgba(167,139,250,.9);
   }
 }
 @keyframes holiday-bar{
@@ -486,12 +486,12 @@ main{padding:0 0 48px}
   100%{background-position:200% 50%}
 }
 @keyframes holiday-icon-pulse{
-  0%,100%{filter:drop-shadow(0 0 4px rgba(251,146,60,.6))}
-  50%{filter:drop-shadow(0 0 18px rgba(251,146,60,1))}
+  0%,100%{filter:drop-shadow(0 0 4px rgba(167,139,250,.6))}
+  50%{filter:drop-shadow(0 0 18px rgba(167,139,250,1))}
 }
 .holiday-notice{
-  background:linear-gradient(135deg,#1c0a00 0%,#3b1200 40%,#1c0a00 100%);
-  border-bottom:2px solid rgba(251,146,60,.5);
+  background:linear-gradient(135deg,#0f0520 0%,#2d0a5e 40%,#0f0520 100%);
+  border-bottom:2px solid rgba(107,33,168,.5);
   padding:20px 0;
   position:relative;
   overflow:hidden;
@@ -501,7 +501,7 @@ main{padding:0 0 48px}
   content:"";
   position:absolute;top:0;left:0;right:0;
   height:5px;
-  background:linear-gradient(90deg,#f97316,#fbbf24,#ef4444,#fbbf24,#f97316);
+  background:linear-gradient(90deg,#6B21A8,#a855f7,#c084fc,#a855f7,#6B21A8);
   background-size:200% auto;
   animation:holiday-bar 1.4s linear infinite;
 }
@@ -523,7 +523,7 @@ main{padding:0 0 48px}
   font-size:16px;
   font-weight:800;
   color:#fff;
-  text-shadow:0 0 14px rgba(251,146,60,.7);
+  text-shadow:0 0 14px rgba(167,139,250,.8);
 }
 .holiday-sub{
   margin:0;
@@ -537,7 +537,7 @@ main{padding:0 0 48px}
 }
 .holiday-chip{
   background:rgba(255,255,255,.07);
-  border:1px solid rgba(251,146,60,.5);
+  border:1px solid rgba(167,139,250,.5);
   border-radius:12px;
   padding:10px 16px;
   text-align:center;
@@ -550,7 +550,7 @@ main{padding:0 0 48px}
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.5px;
-  color:#fbbf24;
+  color:#c084fc;
   margin-bottom:3px;
 }
 .holiday-chip-date{
@@ -562,7 +562,7 @@ main{padding:0 0 48px}
 .holiday-chip-closed{
   display:block;
   font-size:12px;
-  color:#f87171;
+  color:#e9d5ff;
   font-weight:700;
   margin-top:2px;
 }
